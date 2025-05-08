@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI TRAVEL AGENT</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2b2d42;
+            --secondary: #8d99ae;
+            --accent: #ef233c;
+            --text: #f4f4f4;
+            --text-secondary: #ffffff;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #111;
+            color: var(--text);
+        }
+
+        header {
+            background-color: var(--primary);
+            padding: 20px 40px;
+            text-align: center;
+        }
+
+        header .logo {
+            font-size: 30px;
+            color: var(--text);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #2b2d42, #8d99ae);
+            color: var(--text);
+            padding: 80px 0;
+            text-align: Relative;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+
+        .hero h2 {
+            font-size: 2em;
+            margin-top: 10px;
+        }
+
+        .btn {
+            background-color: var(--accent);
+            color: var(--text);
+            padding: 12px 24px;
+            font-size: 18px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        section {
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .experience {
+            background-color: var(--primary);
+            color: var(--text);
+            padding: 40px 20px;
+        }
+
+        .experience h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .experience .experience-item {
+            margin-bottom: 20px;
+            background-color: var(--secondary);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .experience .experience-title {
+            font-size: 1.5em;
+            color: var(--accent);
+        }
+
+        .experience .experience-date {
+            font-size: 1.2em;
+            color: var(--text-secondary);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .project-card {
+            background-color: var(--secondary);
+            padding: 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            background-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .project-image img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .project-title {
+            font-size: 1.8em;
+            margin-top: 10px;
+            color: var(--text);
+        }
+
+        .project-tags {
+            margin-top: 10px;
+        }
+
+        .project-tag {
+            background-color: var(--accent);
+            padding: 5px 10px;
+            margin-right: 10px;
+            border-radius: 5px;
+            color: var(--text);
+        }
+
+        footer {
+            background-color: var(--primary);
+            padding: 30px 40px;
+            color: var(--text);
+            text-align: center;
+        }
+
+        footer a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 20px;
+        }
+
+        footer a:hover {
+            color: var(--accent);
+        }
+
+        /* Responsive Styling */
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                flex-direction: column;
+                gap: 15px;
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+            }
+        }
+           /* Animations */
+           @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animated {
+            opacity: 0;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+        
+        .typing-effect {
+            border-right: 3px solid var(--accent);
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0;
+        }
+        
+        /* Mobile navigation */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            z-index: 1000;
+        }
+        
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px 0;
+            background-color: var(--text);
+            transition: all 0.3s ease;
+        }
+        
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background-color: var(--secondary);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: all 0.5s ease;
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-links li {
+                margin: 20px 0;
+            }
+        }
+        
+        /* Custom cursor */
+        .cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: rgba(1w00, 255, 218, 0.5);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            transition: width 0.3s, height 0.3s;
+            display: none;
+        }
+        
+        .cursor-follower {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 9998;
+            transition: 0.1s;
+            display: none;
+        }
+        
+        @media (min-width: 1024px) {
+            .cursor, .cursor-follower {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    
+
+    <section class="hero">
+        <!-- <div class="animated"> -->
+        <h2>AI-Powered Travel Agent for Trip Planning</h2>
+        <h3>CrewAI | Serpapi | Gemini 1.5 Flash Model | LLM</h3>
+                          
+                    <h3>Project Overview:</h3>
+                    
+                    <p>An AI-powered travel assistant designed to help users plan their trips based on destination, budget, and preferences. The system integrates multiple agents working collaboratively to gather real-time data and provide customized travel plans.
+
+                    </p> 
+        
+                    <h3>Key Features:</h3>
+                    
+                        <p><strong>Real-Time Travel Research:</strong> Utilizes an AI agent that fetches information about historical sites, public transport, hotels, and real-time weather for the given destination.</p>
+                        <p><strong>Budget-Friendly Trip Planning:</strong> The Budget Planner agent ensures the trip remains within a specified budget by suggesting affordable flights, hotels, and activities.</p>
+                        <p><strong>Personalized Itinerary Creation:</strong> The Itinerary Planner creates a 3-day plan focusing on historical sites, transport recommendations, and budget constraints.</p>
+                        <p><strong>Integration with Live Search Tools:</strong> Uses SerperDevTool to fetch up-to-date information from the web for accurate travel planning.</p>
+                        <p><strong>AI Models and APIs:</strong> Built using Google's Gemini 1.5 AI model and integrated with APIs like Google Cloud and Serper API for search functionalities.</p>
+                    
+        
+                    <h3>Technologies Used:</h3>
+                    
+                        <p><strong>Frontend:</strong> Streamlit for the interactive user interface.</p>
+                        <p><strong>Backend:</strong> CrewAI platform for task management and AI agents.</p>
+                        <p><strong>Search API:</strong> Serper API for real-time data.</p>
+                        <p><strong>AI Model:</strong> Gemini 1.5 for processing and generating travel recommendations.</p>
+                    
+        
+                    <h3>How It Works:</h3>
+                    <p>The system integrates multiple AI agents that collaborate to gather real-time data about the destination, hotels, transport, and activities based on user preferences and budget. It then generates a personalized travel itinerary with all the necessary details.</p>
+                
+                <!-- </div> -->
+    </section>
+
+    
+
+   
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize GSAP ScrollTrigger
+            gsap.registerPlugin(ScrollTrigger);
+            
+            // Animate skill progress bars
+            document.querySelectorAll('.skill-progress').forEach(progress => {
+                const level = progress.getAttribute('data-level');
+                gsap.to(progress, {
+                    width: level + '%',
+                    duration: 1.5,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: progress,
+                        start: 'top 80%',
+                    }
+                });
+            });
+            
+            // Animate sections
+            document.querySelectorAll('.animated').forEach(element => {
+                gsap.fromTo(element, 
+                    { y: 50, opacity: 0 },
+                    { 
+                        y: 0, 
+                        opacity: 1, 
+                        duration: 0.8,
+                        scrollTrigger: {
+                            trigger: element,
+                            start: 'top 80%',
+                        }
+                    }
+                );
+            });
+            
+            // Typing effect for the hero section
+            const heroText = document.querySelector('.hero h1');
+            const text = heroText.textContent;
+            heroText.innerHTML = '';
+            heroText.classList.add('typing-effect');
+            
+            let i = 0;
+            const typeWriter = () => {
+                if (i < text.length) {
+                    heroText.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 100);
+                }
+            };
+            
+            setTimeout(typeWriter, 500);
+        });
+        
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+        
+        // Custom cursor effect
+        const cursor = document.querySelector('.cursor');
+        const cursorFollower = document.querySelector('.cursor-follower');
+        
+        document.addEventListener('mousemove', e => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            
+            cursorFollower.style.left = e.clientX + 'px';
+            cursorFollower.style.top = e.clientY + 'px';
+        });
+        
+        document.addEventListener('mousedown', () => {
+            cursor.style.transform = 'translate(-50%, -50%) scale(0.7)';
+            cursorFollower.style.transform = 'translate(-50%, -50%) scale(0.7)';
+        });
+        
+        document.addEventListener('mouseup', () => {
+            cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+            cursorFollower.style.transform = 'translate(-50%, -50%) scale(1)';
+        });
+        
+        // Hover effect for links and buttons
+        const links = document.querySelectorAll('a, button, .project-card');
+        
+        links.forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                cursor.style.width = '30px';
+                cursor.style.height = '30px';
+                cursorFollower.style.width = '50px';
+                cursorFollower.style.height = '50px';
+            });
+            
+            link.addEventListener('mouseleave', () => {
+                cursor.style.width = '20px';
+                cursor.style.height = '20px';
+                cursorFollower.style.width = '40px';
+                cursorFollower.style.height = '40px';
+            });
+        });
+    </script>
+</body>
+
+</html>
