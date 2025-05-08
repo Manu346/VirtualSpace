@@ -221,6 +221,39 @@
             width: 0%;
         }
         
+        .Experience-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 40px auto 0;
+        }
+        
+        .Experience-item {
+            padding: 20px;
+            background-color: var(--secondary);
+            border-radius: 10px;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.s ease;
+        }
+        
+        .Experience-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .Experience-date {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+        
+        .Experience-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -551,8 +584,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
-                <li><a href="#Internships">Skills</a></li>
-
+                <li><a href="#Experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#certification">Certifications</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -586,9 +618,9 @@
 
             <p>I’m proficient in tools like Python, SQL, and libraries including Pandas, NumPy, Scikit-learn, and TensorFlow. I’ve developed machine learning models, performed statistical analyses, and created interactive visualizations that translate complex patterns into clear narratives. </p>
 
-    
+            <p>My journey in data science is guided by a simple philosophy: data has the potential to solve some of the world's most pressing problems, and it's our responsibility as data scientists to harness this potential ethically and effectively. I'm committed to continuous learning, ethical practice, and collaborative innovation in all my endeavors.</p>
 
-            <p>Thank you for visiting my portfolio. I invite you to explore my projects, achievements, and skills showcased here.</p>
+            <p>Thank you for visiting my portfolio. I invite you to explore my projects, achievements, and skills showcased here. If you're interested in collaboration or have any questions, please don't hesitate to reach out through the contact section.</p>
         </div>
     </section>
 
@@ -674,6 +706,36 @@
         </div>
     </section>
 
+    <section id="Experience">
+        <div class="animated">
+            <h2>Experience</h2>
+
+            <div class="Experience-timeline">
+                <div class="Experience-item">
+                    <!-- <span class="Experience-date">March 2024</span> -->
+                    <h2 class="Experience-title">DATA SCIENTIST INTERN</h2>
+                    <h3 class="Experience-title"><i> SmartKnower</i></h3>
+                    <p>Preprocessed and analyzed over 50,000 data points, enhancing data quality and enabling 95% model accuracy in predictive tasks. Trained and optimized a Random Forest Classifier on a real-world income dataset, improving accuracy by 10% through feature engineering, hyperparameter tuning, and cross-validation. Conducted exploratory data analysis (EDA) to uncover hidden trends and anomalies, leading to a 15% optimization in simulated business processes. Collaborated with a team of 5 to build interactive dashboards using Tableau and Plotly, reducing manual reporting time by 30%. Documented all project workflows, data pipelines, and model performance, improving team knowledge transfer and transparency by 20%. Utilized tools like Python, Pandas, NumPy, Scikit-learn, Matplotlib, SQL, and Jupyter Notebooks in a production-like environment.</p>
+                </div>
+                
+                <div class="Experience-item">
+                    <h2 class="Experience-title">FULL-STACK DEVELOPER INTERN </h2>
+                    <h3 class="Experience-title"><i>Kodnest</i> </h3>
+                    <p>Built and maintained dynamic web applications using Java, Spring Boot, HTML/CSS, JavaScript, and MySQL.
+
+                        Developed and integrated RESTful APIs, improving backend-to-frontend communication.
+                        
+                        Designed responsive user interfaces and implemented CRUD operations for real-time data handling.
+                        
+                        Participated in Agile development, version control using Git, and debugging to ensure high-quality code.</p>
+                </div>
+
+                
+            </div>
+        </div>
+    </section>
+
+
     <section id="projects">
         <div class="animated">
             <h2>Projects</h2>
@@ -696,6 +758,7 @@
                         </div>
                         <div class="project-links">
                             <a href="https://github.com/Manu346/AI-Travel-Planner" title="View Code"><i class="fab fa-github"></i></a>
+                            <a href="Ai_Agent.html" title="More"><i class="fas fa-external-link-alt"></i></a>
                         </div>
                     </div>
                 </div>
@@ -736,6 +799,9 @@
                             <span class="project-tag">Matplotlib</span>
                             <span class="project-tag">Jupyter Notebook</span>
                         </div>
+                        <div class="project-links">
+                            <a href="DataAnalysis.html" title="More"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
                     </div>
                 </div>
 
@@ -755,6 +821,7 @@
                         </div>
                         <div class="project-links">
                             <a href="https://github.com/Manu346/Income-classification-" title="View Code"><i class="fab fa-github"></i></a>
+                            <a href="IncomeClassification.html" title="More"><i class="fas fa-external-link-alt"></i></a>
                         </div>
                     </div>
                 </div>
@@ -772,6 +839,9 @@
                         <span class="project-tag">Polly</span>
                         <span class="project-tag">Lambd</span>
                     </div>
+                    <div class="project-links">
+                        <a href="AWSChatbot.html" title="More"><i class="fas fa-external-link-alt"></i></a>
+
                 </div>
             </div>
             </div>
